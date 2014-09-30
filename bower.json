@@ -1,0 +1,23 @@
+{
+  "name": "acm-site",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ACMatMichiganTech/ACMWebsite",
+  "authors": [
+    "Jay Vana <jsvana@mtu.edu>"
+  ],
+  "main": "app.js",
+  "license": "none",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/javascripts/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-material-design": "*",
+    "bootstrap": "~3.2.0",
+    "angular": "~1.2.25"
+  }
+}

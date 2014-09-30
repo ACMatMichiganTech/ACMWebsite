@@ -7,10 +7,10 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , hardware = require('./routes/hardware')
+  , calendar = require('./routes/calendar')
   , http = require('http')
   , path = require('path')
   , Mongoose = require('mongoose');
-  //, db = Mongoose.createConnection('localhost', 'acm-site');
 
 Mongoose.connect('localhost', 'acm-site');
 Mongoose.connection.on('error',
@@ -42,6 +42,7 @@ app.get('/users', user.list);
 app.get('/hardwares', hardware.index);
 app.put('/hardwares/:id', hardware.update);
 app.get('/hardwares/:id', hardware.show);
+app.get('/calendar', calendar.index);
 
 http.createServer(app).listen(app.get('port'), function() {
   console.log("Express server listening on port " + app.get('port'));

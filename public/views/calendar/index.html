@@ -1,2 +1,47 @@
-<h1>Calendar</h1>
-<mwl-calendar></mwl-calendar>
+<h2 class="text-center">{{ prettyMonth() }}</h2>
+<div class="row">
+	<div class="col-md-6 text-center">
+		<div class="btn-group">
+
+			<button class="btn btn-primary" ng-click="calendarControl.prev()">Previous</button>
+			<button class="btn btn-default" ng-click="setCalendarToToday()">Today</button>
+			<button class="btn btn-primary" ng-click="calendarControl.next()">Next</button>
+		</div>
+	</div>
+
+	<br class="visible-xs visible-sm">
+
+	<div class="col-md-6 text-center">
+		<div class="btn-group">
+			<label class="btn btn-primary ng-pristine ng-valid" ng-model="calendarView" btn-radio="'year'">Year</label>
+			<label class="btn btn-primary ng-pristine ng-valid active" ng-model="calendarView" btn-radio="'month'">Month</label>
+			<label class="btn btn-primary ng-pristine ng-valid" ng-model="calendarView" btn-radio="'week'">Week</label>
+			<label class="btn btn-primary ng-pristine ng-valid" ng-model="calendarView" btn-radio="'day'">Day</label>
+		</div>
+	</div>
+</div>
+
+<mwl-calendar
+	calendar-events="events"
+	calendar-view="calendarView"
+	calendar-current-day="calendarDay"
+	calendar-control="calendarControl"
+	calendar-event-click="eventClicked($event)"
+	calendar-edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'></i>'"
+	calendar-delete-event-html="'<i class=\'glyphicon glyphicon-remove\'></i>'"
+	calendar-edit-event-click="eventEdited($event)"
+	calendar-delete-event-click="eventDeleted($event)"
+	></mwl-calendar>
+
+<script type="text/ng-template" id="modalContent.html">
+	<div class="modal-header">
+		<h3 class="modal-title">Event action occurred!</h3>
+	</div>
+	<div class="modal-body">
+		<p>Action: <pre>{{ action }}</pre></p>
+		<p>Event: <pre>{{ event | json }}</pre></p>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" ng-click="$modalInstance.close()">OK</button>
+	</div>
+</script>

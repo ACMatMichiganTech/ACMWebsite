@@ -1,7 +1,34 @@
-doctype 5
-html
+doctype html
+html(ng-app="acmApp")
   head
     title= title
+    link(rel='stylesheet', href='/javascripts/vendor/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/javascripts/vendor/bootstrap-material-design/css-compiled/material.css')
+    link(rel='stylesheet', href='/javascripts/vendor/bootstrap-material-design/css-compiled/ripples.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='javascripts/vendor/jquery/dist/jquery.min.js')
+    script(src='javascripts/vendor/angular/angular.min.js')
+    script(src='javascripts/vendor/angular-resource/angular-resource.min.js')
+    script(src='javascripts/vendor/angular-route/angular-route.min.js')
+    script(src='javascripts/vendor/bootstrap/dist/js/bootstrap.min.js')
+    script(src='javascripts/vendor/bootstrap-material-design/scripts/ripples.js')
+    script(src='javascripts/vendor/bootstrap-material-design/scripts/material.js')
+    script(src='javascripts/app.js')
   body
-    block content
+    div.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      div.container
+        div.navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href="#") ACM Site
+        div.collapse.navbar-collapse(ng-controller="header")
+          ul.nav.navbar-nav
+            li(ng-class="{active: isActive('')}")
+              a(href="/") Home
+            li(ng-class="{active: isActive('hardwares')}")
+              a(href="/hardwares") Hardware
+
+    #main.container
+      div(ng-view)

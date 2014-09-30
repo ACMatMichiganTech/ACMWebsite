@@ -1,0 +1,5 @@
+<h1>Hardware</h1>
+<div ng-repeat="hardware in hardwares">
+	<p>{{ hardware.name }}</p>
+	<button ng-disabled="hardware.checkedOut" ng-click="checkout(hardware)" class="btn btn-primary">Checkout</button>
+</div>

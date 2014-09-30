@@ -1,8 +1,24 @@
-var index = function(req, res) {
-};
+var Hardware = require('../models/hardware');
 
-var show = function(req, res) {
-};
+module.exports = {
+  index: function(req, res) {
+    Hardware.find().exec(function(err, hardwares) {
+      res.send(hardwares);
+    });
+  },
 
-var checkout = function(req, res) {
+  show: function(req, res) {
+    var hardware = Hardware.findOne({ id: req.params.id }, function(err, data) {
+      console.log(data);
+      res.send('foo');
+    });
+  },
+
+  update: function(req, res) {
+    Hardware.findByIdAndUpdate(req.params.id, {$set: req.body},
+      function(err, hardware) {
+        res.send(hardware);
+      }
+    );
+  }
 };

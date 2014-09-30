@@ -1,5 +1,5 @@
 doctype html
-html(ng-app="acmApp")
+html(ng-app="acm")
   head
     title= title
     link(rel='stylesheet', href='/javascripts/vendor/bootstrap/dist/css/bootstrap.min.css')
@@ -17,6 +17,15 @@ html(ng-app="acmApp")
     script(src='javascripts/vendor/moment/moment.js')
     script(src='javascripts/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js')
     script(src='javascripts/vendor/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar.min.js')
+
+    script(src='javascripts/hardware/hardware.module.js')
+    script(src='javascripts/hardware/hardware.service.js')
+    script(src='javascripts/hardware/hardware.controller.js')
+
+    script(src='javascripts/calendar/calendar.module.js')
+    script(src='javascripts/calendar/event.service.js')
+    script(src='javascripts/calendar/calendar.controller.js')
+
     script(src='javascripts/app.js')
   body
     div.navbar.navbar-inverse.navbar-fixed-top(role='navigation')

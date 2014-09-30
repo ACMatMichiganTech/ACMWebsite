@@ -24,6 +24,11 @@ acmApp.controller('hardwares', ['$scope', 'Hardware',
       hardware.checkedOut = true;
       Hardware.update({id: hardware._id}, hardware);
     };
+
+    $scope.returned = function(hardware) {
+      hardware.checkedOut = false;
+      Hardware.update({id: hardware._id}, hardware);
+    };
   }
 ]);
 

@@ -1,4 +1,5 @@
-var acmApp = angular.module('acmApp', ['ngRoute', 'ngResource']);
+var acmApp = angular.module('acmApp',
+  ['ngRoute', 'ngResource', 'mwl.calendar']);
 
 acmApp.factory('Hardware', function($resource) {
   return $resource('/hardwares/:id', null, {
@@ -32,6 +33,8 @@ acmApp.controller('hardwares', ['$scope', 'Hardware',
   }
 ]);
 
+acmApp.controller('calendar', function($scope) {});
+
 acmApp.config(['$routeProvider', '$locationProvider',
   function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
@@ -44,6 +47,10 @@ acmApp.config(['$routeProvider', '$locationProvider',
       .when('/hardwares', {
         templateUrl: 'views/hardwares/index.html',
         controller: 'hardwares'
+      })
+      .when('/calendar', {
+        templateUrl: 'views/calendar/index.html',
+        controller: 'calendar'
       });
   }
 ]);

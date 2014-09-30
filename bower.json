@@ -20,6 +20,7 @@
     "bootstrap": "~3.2.0",
     "angular": "~1.2.25",
     "angular-route": "~1.2.25",
-    "angular-resource": "~1.2.25"
+    "angular-resource": "~1.2.25",
+    "angular-bootstrap-calendar": "~0.2.0"
   }
 }

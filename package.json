@@ -6,10 +6,13 @@
     "start": "node app"
   },
   "dependencies": {
+    "datejs": "*",
     "express": "3.0.0rc5",
     "jade": "*",
     "mongodb": ">= 0.9.6-7",
     "mongoose": ">= 3.6",
-    "datejs": "*"
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0",
+    "bcrypt": "*"
   }
 }

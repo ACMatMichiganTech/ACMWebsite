@@ -1,8 +1,15 @@
+var User = require('../models/user');
 
-/*
- * GET users listing.
- */
+module.exports = {
+  index: function(req, res) {
+    User.find().exec(function(err, users) {
+      res.send(users);
+    })
+  },
 
-exports.list = function(req, res){
-  res.send("respond with a resource");
+  show: function(req, res) {
+    User.findOne({_id: req.params.id}, function(err, user) {
+      res.send(user);
+    });
+  }
 };

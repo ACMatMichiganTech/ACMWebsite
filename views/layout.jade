@@ -35,7 +35,7 @@ html(ng-app="acm")
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href="#") ACM Site
+          a.navbar-brand(href="/") ACM@MichiganTech
         div.collapse.navbar-collapse(ng-controller="header")
           ul.nav.navbar-nav
             li(ng-class="{active: isActive('')}")
@@ -46,4 +46,4 @@ html(ng-app="acm")
               a(href="/calendar") Calendar
 
     #main.container
-      div(ng-view)
+      block content

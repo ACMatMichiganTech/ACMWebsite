@@ -1,4 +1,5 @@
 var Mongoose = require('mongoose');
+var User = require('../models/user');
 var Hardware = require('../models/hardware');
 var Event = require('../models/event');
 require('datejs');
@@ -14,8 +15,33 @@ Mongoose.connection.on('open', function() {
 });
 
 var seed = function() {
+  createUsers();
   createHardwares();
   createEvents();
+};
+
+var createUsers = function() {
+  console.info('Seeding users...');
+
+  User.remove({}, function() {
+    User.create({
+      name: {
+        firstName: 'Jay',
+        lastName: 'Vana'
+      },
+      email: 'jsvana@mtu.edu',
+      password: 'linked'
+    });
+
+    User.create({
+      name: {
+        firstName: 'Phil',
+        lastName: 'Middleton'
+      },
+      email: 'pjmiddle@mtu.edu',
+      password: 'linked'
+    });
+  })
 };
 
 var createHardwares = function() {
